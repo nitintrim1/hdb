@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Drainage Jetting Illustration</title>
+  <desc id="desc">High-pressure water jet cleaning a pipe.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="24" fill="url(#bg)"/>
+  <rect x="120" y="220" width="560" height="160" rx="80" fill="#e2e8f0" stroke="#0b0f4f" stroke-width="4"/>
+  <circle cx="220" cy="300" r="56" fill="#0b0f4f"/>
+  <g fill="#e67900">
+    <rect x="220" y="292" width="120" height="16" rx="8"/>
+    <rect x="360" y="288" width="22" height="24" rx="4"/>
+    <rect x="392" y="284" width="22" height="32" rx="4"/>
+    <rect x="424" y="280" width="22" height="40" rx="4"/>
+    <rect x="456" y="276" width="22" height="48" rx="4"/>
+  </g>
+  <g stroke="#38bdf8" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M180 260 C220 260, 240 280, 260 300"/>
+    <path d="M180 340 C220 340, 240 320, 260 300"/>
+  </g>
+</svg>
+
+

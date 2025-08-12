@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Pipeline Disinfection Illustration</title>
+  <desc id="desc">Pipeline with a droplet and plus symbol indicating chlorination.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="24" fill="url(#bg)"/>
+  <rect x="140" y="280" width="520" height="40" rx="20" fill="#e2e8f0" stroke="#0b0f4f" stroke-width="4"/>
+  <circle cx="400" cy="300" r="80" fill="#ffffff" stroke="#0b0f4f" stroke-width="4"/>
+  <path d="M400 240 C360 300, 360 320, 400 360 C440 320, 440 300, 400 240 Z" fill="#38bdf8"/>
+  <g stroke="#e67900" stroke-width="8" stroke-linecap="round">
+    <path d="M400 268 L400 332"/>
+    <path d="M368 300 L432 300"/>
+  </g>
+</svg>
+
+
