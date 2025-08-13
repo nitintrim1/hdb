@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
   <title id="title">Grease Trap Cleaning Illustration</title>
-  <desc id="desc">A kitchen sink line leading to a grease trap box with separated layers.</desc>
+  <desc id="desc">Sink line into grease trap box showing separated grease, water and solids layers with service access.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#f8fafc"/>
@@ -8,13 +8,26 @@
     </linearGradient>
   </defs>
   <rect width="800" height="600" rx="24" fill="url(#bg)"/>
-  <rect x="140" y="260" width="520" height="160" rx="12" fill="#e2e8f0" stroke="#0b0f4f" stroke-width="4"/>
-  <rect x="160" y="280" width="200" height="48" rx="8" fill="#cbd5e1"/>
-  <rect x="380" y="280" width="260" height="48" rx="8" fill="#cbd5e1"/>
-  <rect x="160" y="340" width="480" height="60" rx="8" fill="#fde68a"/>
-  <rect x="160" y="372" width="480" height="28" rx="6" fill="#94a3b8"/>
-  <circle cx="200" cy="304" r="10" fill="#0b0f4f"/>
-  <rect x="212" y="300" width="40" height="8" rx="4" fill="#e67900"/>
+  <g transform="translate(100 180)">
+    <rect x="0" y="0" width="120" height="36" rx="8" fill="#cbd5e1"/>
+    <rect x="120" y="14" width="60" height="8" rx="4" fill="#94a3b8"/>
+    <rect x="180" y="-40" width="460" height="220" rx="12" fill="#e2e8f0" stroke="#0b0f4f" stroke-width="4"/>
+    <rect x="200" y="-20" width="420" height="40" rx="8" fill="#cbd5e1"/>
+    <rect x="200" y="80" width="420" height="60" rx="6" fill="#fde68a"/>
+    <rect x="200" y="140" width="420" height="32" rx="6" fill="#94a3b8"/>
+    <rect x="560" y="-10" width="36" height="36" rx="6" fill="#ffffff" stroke="#0b0f4f" stroke-width="3"/>
+  </g>
+  <g fill="#e67900">
+    <circle cx="640" cy="190" r="6"/>
+    <circle cx="660" cy="210" r="5"/>
+    <circle cx="620" cy="220" r="4"/>
+  </g>
+  <g transform="translate(160 360)">
+    <circle cx="0" cy="-26" r="12" fill="#0b0f4f"/>
+    <rect x="-9" y="-14" width="18" height="36" rx="6" fill="#0b0f4f"/>
+    <rect x="-26" y="8" width="30" height="10" rx="5" fill="#e2e8f0" stroke="#0b0f4f" stroke-width="3"/>
+    <rect x="8" y="6" width="24" height="12" rx="6" fill="#e67900"/>
+  </g>
 </svg>
 
 
