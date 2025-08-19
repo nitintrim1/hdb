@@ -3,10 +3,27 @@
   const button = document.getElementById('mobile-menu-button');
   const links = document.getElementById('nav-links');
   if (!button || !links) return;
+  
   button.addEventListener('click', () => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded', String(!expanded));
     links.classList.toggle('is-open');
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!button.contains(e.target) && !links.contains(e.target)) {
+      button.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+    }
+  });
+  
+  // Close menu when clicking on a link
+  links.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      button.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+    });
   });
 })();
 

@@ -21,9 +21,10 @@
     <div class="topbar">
       <div class="container topbar__inner">
         <div class="topbar__contact">
-          <span>Al Fahidi Street, Dubai, UAE</span>
-          <a href="mailto:info@hayatanddidarbuildingcleaningservices.com">info@hayatanddidarbuildingcleaningservices.com</a>
-          <a href="tel:+97145536652">(04) 553 6652</a>
+          <span>Al Mansoori Building, Nakheel, Deira. M floor, M02.</span>
+          <a href="mailto:info@hdbcleaningservice.com">info@hdbcleaningservice.com</a>
+          <a href="tel:+971551545921">0551545921</a>
+          <a href="tel:+971556257064">0556257064</a>
         </div>
         <div class="topbar__cta">
           <a class="btn btn--sm btn--primary" href="#contact">Get Quote</a>
@@ -445,32 +446,35 @@
           <div class="contact__info">
             <h2 id="contact-title" class="section-title">Contact Us</h2>
             <ul class="contact__list">
-              <li><strong>Address:</strong> Al Fahidi Street, Dubai, UAE</li>
-              <li><strong>Mobile:</strong> (04) 553 6652</li>
-              <li><strong>Land Line:</strong> (04) 553 6652</li>
-              <li><strong>Email:</strong> <a href="mailto:info@hayatanddidarbuildingcleaningservices.com">info@hayatanddidarbuildingcleaningservices.com</a></li>
+                      <li><strong>Address:</strong> Al Mansoori Building, Nakheel, Deira. M floor, M02.</li>
+        <li><strong>Mobile:</strong> 0551545921 / 0556257064</li>
+        <li><strong>Email:</strong> <a href="mailto:info@hdbcleaningservice.com">info@hdbcleaningservice.com</a></li>
             </ul>
           </div>
-          <form class="contact__form" action="#" method="post" onsubmit="event.preventDefault(); this.reset(); alert('Thank you! We will contact you soon.');">
-            <div class="form__row">
-              <label>Full Name<input type="text" name="name" required placeholder="Your name" /></label>
-              <label>Email<input type="email" name="email" required placeholder="you@example.com" /></label>
-            </div>
-            <div class="form__row">
-              <label>Phone<input type="tel" name="phone" placeholder="+971 ..." /></label>
-              <label>Service<select name="service">
-                <option>AC Duct Cleaning</option>
-                <option>Water Tank Cleaning &amp; Disinfection</option>
-                <option>Kitchen Hood Cleaning</option>
-                <option>Drainage Jetting</option>
-                <option>Grease Trap Cleaning</option>
-                <option>Sanitization &amp; Disinfection</option>
-                <option>Maintenance Work</option>
-              </select></label>
-            </div>
-            <label>Message<textarea name="message" rows="5" placeholder="Tell us about your needs"></textarea></label>
-            <button type="submit" class="btn btn--primary">Send Message</button>
-          </form>
+                     <form class="contact__form" id="contactForm">
+             <div class="form__row">
+               <label>Full Name<input type="text" name="name" required placeholder="Your name" /></label>
+               <label>Email<input type="email" name="email" required placeholder="you@example.com" /></label>
+             </div>
+             <div class="form__row">
+               <label>Phone<input type="tel" name="phone" placeholder="+971 ..." /></label>
+               <label>Service<select name="service" required>
+                 <option value="">Select a service</option>
+                 <option value="AC Duct Cleaning">AC Duct Cleaning</option>
+                 <option value="Water Tank Cleaning &amp; Disinfection">Water Tank Cleaning &amp; Disinfection</option>
+                 <option value="Kitchen Hood Cleaning">Kitchen Hood Cleaning</option>
+                 <option value="Drainage Jetting">Drainage Jetting</option>
+                 <option value="Grease Trap Cleaning">Grease Trap Cleaning</option>
+                 <option value="Sanitization &amp; Disinfection">Sanitization &amp; Disinfection</option>
+                 <option value="Maintenance Work">Maintenance Work</option>
+               </select></label>
+             </div>
+             <label>Message<textarea name="message" rows="5" placeholder="Tell us about your needs" required></textarea></label>
+             <button type="submit" class="btn btn--primary" id="submitBtn">
+               <span class="btn-text">Send Message</span>
+               <span class="btn-loading" style="display: none;">Sending...</span>
+             </button>
+           </form>
         </div>
       </section>
     </main>
@@ -510,17 +514,68 @@
             <h3>Company Address</h3>
             <address>
               <strong>HDB Cleaning Services LLC</strong><br />
-              Al Fahidi Street, Dubai, UAE<br />
-              Mob: +971 00 000 0000<br />
-              Lan Line: 04–0000000<br />
-              <a href="mailto:info@hdbcleaningservices.com">info@hdbcleaningservices.com</a>
+              Al Mansoori Building, Nakheel, Deira. M floor, M02.<br />
+                             Mob: 0551545921 / 0556257064<br />
+               Lan Line: 0551545921 / 0556257064<br />
+                             <a href="mailto:info@hdbcleaningservice.com">info@hdbcleaningservice.com</a>
             </address>
           </div>
         </div>
       </div>
     </footer>
 
-    <script src="./assets/script.js" defer></script>
+         <!-- EmailJS SDK -->
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+     <script src="./assets/script.js" defer></script>
+     <script>
+       // Initialize EmailJS
+       (function() {
+         emailjs.init("YOUR_PUBLIC_KEY"); // You'll replace this with your actual EmailJS public key
+       })();
+       
+       // Contact form handling
+       document.getElementById('contactForm').addEventListener('submit', function(e) {
+         e.preventDefault();
+         
+         const submitBtn = document.getElementById('submitBtn');
+         const btnText = submitBtn.querySelector('.btn-text');
+         const btnLoading = submitBtn.querySelector('.btn-loading');
+         
+         // Show loading state
+         submitBtn.disabled = true;
+         btnText.style.display = 'none';
+         btnLoading.style.display = 'inline';
+         
+         // Get form data
+         const formData = new FormData(this);
+         const templateParams = {
+           from_name: formData.get('name'),
+           from_email: formData.get('email'),
+           from_phone: formData.get('phone'),
+           service_requested: formData.get('service'),
+           message: formData.get('message'),
+           to_email: 'info@hdbcleaningservice.com'
+         };
+         
+         // Send email using EmailJS
+         emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+           .then(function(response) {
+             // Success
+             alert('Thank you! Your message has been sent successfully. We will contact you soon.');
+             document.getElementById('contactForm').reset();
+           }, function(error) {
+             // Error
+             alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
+             console.error('EmailJS Error:', error);
+           })
+           .finally(function() {
+             // Reset button state
+             submitBtn.disabled = false;
+             btnText.style.display = 'inline';
+             btnLoading.style.display = 'none';
+           });
+       });
+     </script>
   </body>
   </html>
 
