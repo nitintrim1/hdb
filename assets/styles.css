@@ -65,6 +65,44 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .topbar a { color: #d4f1fb; text-decoration: none; margin-left: 12px; }
 
+/* WhatsApp Icon */
+.whatsapp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  margin-left: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-icon:hover {
+  background: #128C7E;
+  transform: scale(1.1);
+  color: white;
+}
+
+.whatsapp-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer WhatsApp Icon */
+.footer-whatsapp {
+  margin: 16px 0 0 0;
+  width: 50px;
+  height: 50px;
+}
+
+.footer-whatsapp svg {
+  width: 24px;
+  height: 24px;
+}
+
 .header {
   position: sticky; top: 0; z-index: 50; background: #ffffffee; backdrop-filter: saturate(180%) blur(6px);
   border-bottom: 1px solid var(--border);
@@ -84,6 +122,34 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .nav__hamburger::before { position: absolute; transform: translateY(-6px); }
 .nav__hamburger::after { position: absolute; transform: translateY(6px); }
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+.breadcrumb__list {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb__item:not(:last-child)::after {
+  content: "/";
+  color: var(--muted);
+  margin-left: 8px;
+}
+.breadcrumb__link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+.breadcrumb__link:hover {
+  color: var(--primary);
+}
 
 /* Mobile navigation improvements */
 @media (max-width: 720px) {
@@ -209,12 +275,22 @@ textarea { resize: vertical; }
 .footer { border-top: 1px solid var(--border); background: #ffffff; }
 .footer__inner { padding: 28px 0; }
 .footer__brand { color: var(--muted); }
-.footer__brand .logo img { height: 44px; }
+/* .footer__brand .logo img { height: 44px; } */
 .footer__cols { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 .footer__col h3 { margin: 0 0 8px; font-size: 16px; }
 .footer__col ul { list-style: none; margin: 0; padding: 0; }
 .footer__col a { color: var(--muted); text-decoration: none; }
 .footer__col a:hover { color: var(--primary-600); }
+
+/* Footer Copyright Section */
+.footer__copyright {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
 
 /* Utilities */
 .section-title { margin-bottom: 16px; }
