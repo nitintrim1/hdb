@@ -2,12 +2,22 @@
 (function () {
   const button = document.getElementById('mobile-menu-button');
   const links = document.getElementById('nav-links');
-  if (!button || !links) return;
+  const nav = document.getElementById('nav');
+  const closeButton = document.querySelector('.nav__close');
+  if (!button || !links || !nav) return;
   
   button.addEventListener('click', () => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded', String(!expanded));
     links.classList.toggle('is-open');
+    nav.classList.toggle('is-open');
+    
+    // Prevent body scroll when menu is open
+    if (!expanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   });
   
   // Close menu when clicking outside
@@ -15,6 +25,8 @@
     if (!button.contains(e.target) && !links.contains(e.target)) {
       button.setAttribute('aria-expanded', 'false');
       links.classList.remove('is-open');
+      nav.classList.remove('is-open');
+      document.body.style.overflow = '';
     }
   });
   
@@ -23,7 +35,29 @@
     link.addEventListener('click', () => {
       button.setAttribute('aria-expanded', 'false');
       links.classList.remove('is-open');
+      nav.classList.remove('is-open');
+      document.body.style.overflow = '';
     });
+  });
+  
+  // Close menu when clicking close button
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      button.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+      nav.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  }
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      button.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+      nav.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
   });
 })();
 
